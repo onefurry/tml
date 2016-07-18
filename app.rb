@@ -14,6 +14,8 @@ $r.setnx('tml:counterfun', '0')
 
 helpers do
   # Returns the number of saved TML games in our registry.
+  # The test counter variable is just a placeholder until the game storage is
+  # coded properly.
   def n_games
     $r.get('tml:counterfun')
   end
