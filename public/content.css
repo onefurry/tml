@@ -1,0 +1,39 @@
+* { box-sizing: border-box; }
+body {
+  font-family: sans-serif;
+  color: #fff;
+  margin: 0;
+  background: #353065;
+}
+header {
+  background: #26215a;
+  text-align: center;
+  padding: 2em;
+}
+h1, h2 {
+  font-weight: normal;
+  margin: 0;
+}
+.about {
+  padding: 3em;
+  width: 40em;
+  margin: 0 auto;
+}
+.edlink {
+  background: #ff3;
+  display: block;
+  width: 10em;
+  margin: 1em auto;
+  text-align: center;
+  padding: 1em;
+  font-size: 1.3em;
+  color: #26215a;
+  text-decoration: none;
+  border-radius: none;
+}
+small {
+  display: block;
+  text-align: center;
+  color: #77c;
+  margin: 4em;
+}
