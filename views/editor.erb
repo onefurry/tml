@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TML Editor</title>
+    <link rel="stylesheet" href="/editor.css">
+    <script src="/util.js"></script>
+    <script src="/reqhandler.js"></script>
+    <script src="/gui.js"></script>
+    <script src="/editor.js"></script>
+  </head>
+  <body>
+    <h1>TML Editor</h1>
+    <div class="screen show" id="start">
+      <table>
+        <tr>
+          <td>Game URL/ID:</td>
+          <td><input type="text" id="game-name"></td>
+        </tr>
+        <tr>
+          <td>Edit Key:</td>
+          <td><input type="text" id="game-key"></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="buttons">
+              <button id="new-game">New Game</button>
+              <button id="load-game">Load Game</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <script>
+    editor();
+    </script>
+  </body>
+</html>

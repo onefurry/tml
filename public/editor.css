@@ -1,0 +1,41 @@
+* { box-sizing: border-box; }
+body {
+  font-family: sans-serif;
+  color: #fff;
+  margin: 3em;
+  background: #353065;
+}
+h1, h2 {
+  font-weight: normal;
+  margin: 0;
+}
+td {
+  padding: 0.3em;
+}
+input[type=text] {
+  background: #fff;
+  border: 0;
+  padding: 0.5em;
+}
+button {
+  background: #ff3;
+  color: #26215a;
+  font-size: 1em;
+  border: 0;
+  font-family: inherit;
+  padding: 0.3em 0.5em;
+  cursor: pointer;
+}
+.buttons {
+  display: flex;
+}
+.buttons button {
+  width: 100%;
+  margin: 0.5em;
+}
+.screen {
+  display: none;
+}
+.screen.show {
+  display: block;
+}

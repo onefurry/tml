@@ -17,7 +17,7 @@ get '/' do
 end
 
 get '/e' do
-  erb :nyi
+  erb :editor
 end
 
 get '/g/:gamename' do
