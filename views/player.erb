@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TML Player</title>
+    <link rel="stylesheet" href="/content.css">
+    <script src="/player.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1 id="gametitle">TML Player - Loading Game...</h1>
+    </header>
+    <div class="about" id="pagebody">
+      Loading...
+    </div>
+    <script>
+    player(<%= $r.get("tml:game:#{params['gamename']}") %>);
+    </script>
+  </body>
+</html>

@@ -10,26 +10,50 @@ end
 $r = Redis.new
 
 # Set up any uninitialized redis values.
-$r.setnx('tml:counterfun', '0')
-
-helpers do
-  # Returns the number of saved TML games in our registry.
-  # The test counter variable is just a placeholder until the game storage is
-  # coded properly.
-  def n_games
-    $r.get('tml:counterfun')
-  end
-end
+$r.setnx('tml:gamecount', '0')
 
 get '/' do
   erb :index
 end
 
-get '/editor' do
+get '/e' do
   erb :nyi
 end
 
-get '/increase' do
-  $r.incr('tml:counterfun')
-  redirect to '/'
+get '/g/:gamename' do
+  erb :player
+end
+
+# Retrieve a game's data.
+get '/d/:gamename' do
+  $r.get("tml:game:#{params['gamename']}")
+end
+
+# Save/update a game's data.
+get '/s/:gamename' do
+  g = "tml:game:#{params['gamename']}"
+  if params['key'] == $r.get("#{g}:key") && $r.exists(g)
+    $r.set(g, params['data'])
+    "OK"
+  else
+    "NOT AUTHORIZED"
+  end
+end
+
+# Create a new game.
+get '/c/:gamename' do
+  g = "tml:game:#{params['gamename']}"
+  if !$r.exists(g)
+    $r.set(g, params['data'])
+    $r.set("#{g}:key", params['key'])
+    $r.incr("tml:gamecount")
+    "OK"
+  else
+    "ALREADY EXISTS"
+  end
+end
+
+# Check the validity of a key.
+get '/k/:gamename' do
+  (params['key'] == $r.get("tml:game:#{params['gamename']}:key")) ? 'true' : 'false'
 end

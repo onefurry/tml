@@ -16,11 +16,11 @@
         specific game.
       </p>
       <p>
-        There are currently <b><%= n_games %></b> games in the TML registry.
+        There are currently <b><%= $r.get('tml:gamecount') %></b> games in the TML registry.
         Make your own today for free!
       </p>
     </div>
-    <a href="/editor" class="edlink">Game Editor</a>
+    <a href="/e" class="edlink">Game Editor</a>
     <small>Copyright &copy; 2016 Nova Wolf</small>
   </body>
 </html>
