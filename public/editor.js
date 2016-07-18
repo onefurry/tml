@@ -7,7 +7,7 @@ var gamedata = {};
 var loadGame = function () {
   rh.load(editdata.name, function (data) {
     gamedata = data;
-    document.body.innerHTML = gamedata;
+    document.body.innerHTML = JSON.stringify(gamedata);
   });
 }
 
