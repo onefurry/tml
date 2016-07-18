@@ -23,6 +23,7 @@ var rh = {
       lists: {},
       numbers: {},
       startpoint: "main/start",
+      text: {},
       sets: {
         main: {
           pages: {
