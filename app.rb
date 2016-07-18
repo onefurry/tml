@@ -55,5 +55,6 @@ end
 
 # Check the validity of a key.
 get '/k/:gamename' do
-  (params['key'] == $r.get("tml:game:#{params['gamename']}:key")) ? 'true' : 'false'
+  (params['key'] ==
+    $r.get("tml:game:#{params['gamename']}:key")) ? 'true' : 'false'
 end

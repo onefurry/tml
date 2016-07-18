@@ -13,10 +13,12 @@ var rh = {
     });
   },
   save: function (name, key, data) {
-    rh.request("/s/" + name + "?key=" + key + "&data=" + encodeURI(data), function () {});
+    rh.request("/s/" + name + "?key=" + key + "&data=" + encodeURI(data),
+      function () {});
   },
   create: function (name, key, data, cb) {
-    rh.request("/c/" + name + "?key=" + key + "&data=" + encodeURI(data), function (res) {
+    rh.request("/c/" + name + "?key=" + key + "&data=" + encodeURI(data),
+      function (res) {
       cb(res == "ALREADY EXISTS");
     });
   }
