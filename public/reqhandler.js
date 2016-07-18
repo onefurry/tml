@@ -13,8 +13,8 @@ var rh = {
     });
   },
   save: function (name, key, data) {
-    rh.request("/s/" + name + "?key=" + key + "&data=" + encodeURI(data),
-      function () {});
+    rh.request("/s/" + name + "?key=" + key + "&data=" +
+      encodeURI(JSON.stringify(data)), function () {});
   },
   create: function (name, key, cb) {
     // This is the default game data.
@@ -23,33 +23,30 @@ var rh = {
       lists: {},
       numbers: {},
       startpoint: "main/start",
-      text: {},
       sets: {
         main: {
-          pages: {
-            start: {
-              text: [
+          start: {
+            text: [
+              {
+                text: "Welcome to the TML Editor! This is the start page " +
+                      "of the game! You can link it to other pages or sets!"
+              },
+              {
+                text: "Nice! You've set x to 1!",
+                only_ifeq: ['x', 1]
+              }
+            ],
+            links: [{
+              label: "Set x to 1.",
+              only_ifeq: ['x', 0],
+              actions: [
                 {
-                  text: "Welcome to the TML Editor! This is the start page " +
-                        "of the game! You can link it to other pages or sets!"
-                },
-                {
-                  text: "Nice! You've set x to 1!",
-                  only_ifeq: ['x', 1]
+                  type: 'set',
+                  on: 'x',
+                  val: 1
                 }
-              ],
-              links: [{
-                label: "Set x to 1.",
-                only_ifeq: ['x', 0],
-                actions: [
-                  {
-                    type: 'set',
-                    on: 'x',
-                    val: 1
-                  }
-                ]
-              }]
-            }
+              ]
+            }]
           }
         }
       }

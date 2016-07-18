@@ -4,10 +4,33 @@ var editdata = {
 };
 var gamedata = {};
 
+var saveGame = function () {
+  rh.save(editdata.name, editdata.key, gamedata);
+};
+
+var showSet = function (set) {
+  var s = gamedata.sets[set];
+  for (var page in s) (function(page) {
+    alert(page);
+  })(page);
+};
+
 var loadGame = function () {
   rh.load(editdata.name, function (data) {
     gamedata = data;
-    document.body.innerHTML = JSON.stringify(gamedata);
+    showScreen('#main');
+    document.querySelector("#start-screen").value = gamedata.startpoint;
+    for(set in gamedata.sets) (function(set) {
+      document.querySelector("#screen-sets").appendChild(libtn(set, function() {
+        showSet(set);
+      }));
+    })(set);
+    document.querySelector("#screen-sets").appendChild(libtn("+", function () {
+      var name;
+      if(name = prompt("Enter the name for the set:")) {
+        alert("Made Set! x3")
+      }
+    }));
   });
 }
 

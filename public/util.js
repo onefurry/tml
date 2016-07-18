@@ -1,8 +1,8 @@
 // Hack in a map() function for objects.
-Object.prototype.map = function (func) {
-  var o = this, result = {};
-  Object.keys(this).forEach(function (key) {
-    if (o.hasOwnProperty(key)) result[key] = func(o[key]);
+var objmap = function (obj, func) {
+  var result = {};
+  Object.keys(obj).forEach(function (key) {
+    if (obj.hasOwnProperty(key)) result[key] = func(obj[key]);
   });
   return result;
 };
